@@ -11,7 +11,7 @@ class Landing extends Component {
                 <b>Welcome</b> to Kealan & Dean's Project
               </h4>
               <p className="flow-text grey-text text-darken-1">
-                Sample Text
+
               </p>
               <br />
               <div className="col s6">

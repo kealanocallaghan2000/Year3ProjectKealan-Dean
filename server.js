@@ -14,7 +14,7 @@ app.use(
 );
 app.use(bodyParser.json());
 // DB Config
-const db = require('./config/config/keys.js').mongoURI;
+const db = require('./config/keys.js').mongoURI;
 // Connect to MongoDB
 mongoose
   .connect(
@@ -28,7 +28,7 @@ mongoose
 app.use(passport.initialize());
 
 // Passport config
-require("./config/config/passport.js")(passport);
+require("./config/passport.js")(passport);
 
 // Routes
 app.use("/api/users", users);
