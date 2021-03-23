@@ -23,7 +23,7 @@ class AddProduct extends Component {
     if (name && price) {
       const id = Math.random().toString(36).substring(2) + Date.now().toString(36);
 
-      await axios.post(
+      axios.post(
         'http://localhost:3001/products',
         { id, name, price, stock, shortDesc, description },
       )
@@ -39,12 +39,12 @@ class AddProduct extends Component {
         () => this.setState(initState)
       );
       this.setState(
-        { flash: { status: 'is-success', msg: 'Product created successfully' }}
+        { flash: { status: 'is-success', msg: 'Product created successfully' } }
       );
 
     } else {
       this.setState(
-        { flash: { status: 'is-danger', msg: 'Please enter name and price' }}
+        { flash: { status: 'is-danger', msg: 'Please enter name and price' } }
       );
     }
   };
