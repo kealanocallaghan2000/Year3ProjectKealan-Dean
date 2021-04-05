@@ -3,6 +3,18 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
 const passport = require("passport");
+const cors = require('cors');
+
+app.use(cors());
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers",
+  "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+  });
+
 
 const users = require('./routes/api/users.js');
 
@@ -16,7 +28,7 @@ var productSchema = new Schema({
   description: String
 });
 
-var ProductModel = mongoose.model("product collection", productSchema);
+var ProductModel = mongoose.model("product", productSchema);
 
 // Bodyparser middleware
 app.use(
@@ -48,7 +60,15 @@ app.use("/api/users", users);
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
 
-app.post('/add-product', (req, res) => {
+app.post('/products', (req, res) => {
   console.log('product received');
   console.log(req.body.shortDesc);
+
+  ProductModel.create({
+    name:req.body.name,
+    stock:req.body.stock,
+    price:req.body.price,
+    shortDesc:req.body.shortDesc,
+    description:req.body.description
+  })
 })

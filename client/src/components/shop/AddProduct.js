@@ -24,7 +24,7 @@ class AddProduct extends Component {
       const id = Math.random().toString(36).substring(2) + Date.now().toString(36);
 
       axios.post(
-        'http://localhost:3001/products',
+        'http://localhost:3000/products',
         { id, name, price, stock, shortDesc, description },
       )
 
