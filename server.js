@@ -60,9 +60,20 @@ app.use("/api/users", users);
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
 
+//gets data at api / movies
+app.get('/products', (req, res) => {
+ 
+  //finds all docs in database
+  ProductModel.find((err, data) => {
+      res.json(data);
+      console.log(data);
+  })
+
+})
+
 app.post('/products', (req, res) => {
   console.log('product received');
-  console.log(req.body.shortDesc);
+  console.log(req.body.name);
 
   ProductModel.create({
     name:req.body.name,
@@ -71,4 +82,6 @@ app.post('/products', (req, res) => {
     shortDesc:req.body.shortDesc,
     description:req.body.description
   })
+
+  res.send('Item added');
 })

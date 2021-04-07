@@ -30,7 +30,7 @@ class Dashboard extends Component {
   async componentDidMount() {
     let cart = localStorage.getItem("cart");
   
-    const products = await axios.get('http://localhost:3001/products');
+    const products = await axios.get('http://localhost:5000/products');
     cart = cart? JSON.parse(cart) : {};
   
     this.setState({  products: products.data, cart });
