@@ -6,7 +6,7 @@ export class Read extends React.Component{
 
     //object that handles the data for our components
     state = {
-        //json data for movies
+        //json data for products
         products: []
     };
 

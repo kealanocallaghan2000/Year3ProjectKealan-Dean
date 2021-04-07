@@ -17,6 +17,7 @@ class Dashboard extends Component {
     this.props.logoutUser();
   };
 
+  //Constructor
   constructor(props) {
     super(props);
     this.state = {
@@ -36,12 +37,14 @@ class Dashboard extends Component {
     this.setState({  products: products.data, cart });
   }
 
+  //Adds Product To Database
   addProduct = (product, callback) => {
     let products = this.state.products.slice();
     products.push(product);
     this.setState({ products }, () => callback && callback());
   };
 
+  //Adds Product To Cart
   addToCart = cartItem => {
     let cart = this.state.cart;
     if (cart[cartItem.id]) {
@@ -56,6 +59,7 @@ class Dashboard extends Component {
     this.setState({ cart });
   };
 
+  //Removes Product From Cart
   removeFromCart = cartItemId => {
     let cart = this.state.cart;
     delete cart[cartItemId];
@@ -63,12 +67,14 @@ class Dashboard extends Component {
     this.setState({ cart });
   };
   
+  //Clears Entire Cart
   clearCart = () => {
     let cart = {};
     localStorage.removeItem("cart");
     this.setState({ cart });
   };
 
+  //Render
   render() {
     const { user } = this.props.auth;
 

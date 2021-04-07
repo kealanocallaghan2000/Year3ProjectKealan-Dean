@@ -10,12 +10,14 @@ const initState = {
   description: ""
 };
 
+//Add Product Class
 class AddProduct extends Component {
   constructor(props) {
     super(props);
     this.state = initState;
   }
 
+  //Save Function Used For Add Product
   save = async (e) => {
     e.preventDefault();
     const { name, price, stock, shortDesc, description } = this.state;
@@ -51,6 +53,7 @@ class AddProduct extends Component {
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value, error: "" });
 
+  //Renders Form To Add Product
   render() {
     const { name, price, stock, shortDesc, description } = this.state;
     const { user } = this.props.context;

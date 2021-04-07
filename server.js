@@ -85,3 +85,11 @@ app.post('/products', (req, res) => {
 
   res.send('Item added');
 })
+
+app.delete('/products/:id',(req, res) => {
+  console.log("Delete Product: "+req.params.id);
+
+  ProductModel.findByIdAndDelete(req.params.id,(err, data) => {
+    res.send(data);
+  })
+})

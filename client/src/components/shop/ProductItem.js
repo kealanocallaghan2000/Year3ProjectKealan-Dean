@@ -1,7 +1,11 @@
 import React from "react";
 
+
 const ProductItem = props => {
   const { product } = props;
+
+
+  
   return (
     <div className=" column is-half">
       <div className="box">
@@ -37,6 +41,14 @@ const ProductItem = props => {
                 }
               >
                 Add to Cart
+              </button>
+              
+            <button 
+              className="button is-small is-outlined is-primary   is-pulled-right"
+              
+            >
+              Delete
+
               </button>
             </div>
           </div>
