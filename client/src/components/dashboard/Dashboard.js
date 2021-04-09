@@ -99,7 +99,7 @@ class Dashboard extends Component {
             aria-label="main navigation"
           >
             <div className="navbar-brand">
-              <b className="navbar-item is-size-4 ">ecommerce</b>
+              <b className="navbar-item is-size-4 ">Buy&Sell.com</b>
               <label
                 role="button"
                 class="navbar-burger burger"
@@ -120,10 +120,10 @@ class Dashboard extends Component {
                   this.state.showMenu ? "is-active" : ""
                 }`}>
                 <Link to="/products" className="navbar-item">
-                  Products
+                  For Sale
                 </Link>
                   <Link to="/add-product" className="navbar-item">
-                    Add Product
+                    Post Ad
                   </Link>
                 <Link to="/cart" className="navbar-item">
                   Cart

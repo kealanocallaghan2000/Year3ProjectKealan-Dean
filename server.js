@@ -66,9 +66,18 @@ app.get('/products', (req, res) => {
   //finds all docs in database
   ProductModel.find((err, data) => {
       res.json(data);
-      console.log(data);
+      console.log(req.params.id);
   })
 
+})
+
+//gets id and finds in db
+app.get('/products/:id', (req, res) => {
+  console.log(req.params.id);
+
+  ProductModel.findById(req.params.id, (err, data) => {
+      res.json(data);
+  })
 })
 
 app.post('/products', (req, res) => {
@@ -84,12 +93,4 @@ app.post('/products', (req, res) => {
   })
 
   res.send('Item added');
-})
-
-app.delete('/products/:id',(req, res) => {
-  console.log("Delete Product: "+req.params.id);
-
-  ProductModel.findByIdAndDelete(req.params.id,(err, data) => {
-    res.send(data);
-  })
 })

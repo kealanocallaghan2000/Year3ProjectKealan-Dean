@@ -9,7 +9,7 @@ const ProductList = props => {
     <>
       <div className="hero is-primary">
         <div className="hero-body container">
-          <h4 className="title">Our Products</h4>
+          <h4 className="title">For Sale</h4>
         </div>
       </div>
       <br />
@@ -21,6 +21,7 @@ const ProductList = props => {
                 product={product}
                 key={index}
                 addToCart={props.context.addToCart}
+                DeleteProduct={props.context.DeleteProduct}
               />
             ))
           ) : (
