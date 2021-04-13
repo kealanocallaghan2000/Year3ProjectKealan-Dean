@@ -7,7 +7,7 @@ const initState = {
   price: "",
   stock: "",
   shortDesc: "",
-  description: ""
+  imgSrc: ""
 };
 
 //Add Product Class
@@ -20,14 +20,14 @@ class AddProduct extends Component {
   //Save Function Used For Add Product
   save = async (e) => {
     e.preventDefault();
-    const { name, price, stock, shortDesc, description } = this.state;
+    const { name, price, stock, shortDesc, imgSrc } = this.state;
 
     if (name && price) {
       const id = Math.random().toString(36).substring(2) + Date.now().toString(36);
 
       axios.post(
         'http://localhost:3000/products',
-        { id, name, price, stock, shortDesc, description },
+        { id, name, price, stock, shortDesc, imgSrc },
       )
 
       this.props.context.addProduct(
@@ -35,7 +35,7 @@ class AddProduct extends Component {
           name,
           price,
           shortDesc,
-          description,
+          imgSrc,
           stock: stock || 0
         },
         () => this.setState(initState)
@@ -55,7 +55,7 @@ class AddProduct extends Component {
 
   //Renders Form To Add Product
   render() {
-    const { name, price, stock, shortDesc, description } = this.state;
+    const { name, price, stock, shortDesc, imgSrc } = this.state;
     const { user } = this.props.context;
 
     return (
@@ -113,14 +113,14 @@ class AddProduct extends Component {
                 />
               </div>
               <div className="field">
-                <label className="label">Description: </label>
+                <label className="label">Image: </label>
                 <textarea
                   className="textarea"
                   type="text"
                   rows="2"
                   style={{ resize: "none" }}
-                  name="description"
-                  value={description}
+                  name="imgSrc"
+                  value={imgSrc}
                   onChange={this.handleChange}
                 />
               </div>

@@ -25,7 +25,7 @@ var productSchema = new Schema({
   stock: String,
   price: String,
   shortDesc: String,
-  description: String
+  imgSrc: String
 });
 
 var ProductModel = mongoose.model("product", productSchema);
@@ -89,7 +89,7 @@ app.post('/products', (req, res) => {
     stock:req.body.stock,
     price:req.body.price,
     shortDesc:req.body.shortDesc,
-    description:req.body.description
+    imgSrc:req.body.imgSrc
   })
 
   res.send('Item added');
