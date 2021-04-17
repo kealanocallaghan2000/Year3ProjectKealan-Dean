@@ -128,7 +128,7 @@ class Dashboard extends Component {
                 <Link to="/cart" className="navbar-item">
                   Cart
                   <span
-                    className="tag is-primary"
+                    className="tag is-info"
                     style={{ marginLeft: "5px" }}
                   >
                     { Object.keys(this.state.cart).length }
