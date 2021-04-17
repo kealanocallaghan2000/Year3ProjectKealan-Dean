@@ -7,7 +7,7 @@ const Cart = props => {
   const cartKeys = Object.keys(cart || {});
   return (
     <>
-      <div className="hero is-primary">
+      <div className="hero is-info">
         <div className="hero-body container">
           <h4 className="title">My Cart</h4>
         </div>
